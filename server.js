@@ -21,14 +21,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/catsController.js");
+var routes = require("./controllers/burgers_Controller.js");
 
 app.use("/", routes);
 
 app.listen(port);
-
-
-//  Should we be using this???
-//  "devDependencies": {
-//    "handlebars-helper-css": "^0.1.0"
-//  }
