@@ -1,0 +1,45 @@
+<div id = container>
+  <div class="jumbotron text-center">
+    <h1>Burgers! Burger! Burgers!</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-5">
+      <img src="assets/img/burgerIcon.png" alt="burgerImage" align="middle" height="200" width="200">
+    </div>
+  </div>
+
+  <div class="row" id="rowOne">
+
+      <h2>Here are burgers to devour!!!</h2>
+
+      {{#each burgers}}
+        {{#unless this.devoured}}
+
+          {{this.name}}
+            <div class="well">{{this.id}}: {{this.burger_name}}
+              <form class="eat" action="/api/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="name" value="true">
+                <button type="submit">CHOMP!</button>
+              </form>
+            </div>
+     
+      {{/unless}}
+    {{/each}}
+  </div> <!-- closes rowOne -->
+
+  <div class="row" id="rowTwo">
+    <h2>Here are devoured burgers!!!</h2>
+
+      {{#each burgers}}
+        {{#if this.devoured}}
+
+          {{this.name}}
+            <div class="well">{{this.id}}: {{this.burger_name}}
+            </div>
+     
+        {{/if}}
+      {{/each}}
+
+  </div> <!-- closes rowTwo -->
+</div> <!-- closes container -->

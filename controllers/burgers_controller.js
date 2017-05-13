@@ -12,8 +12,9 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/", function(req, res) {
-  burger.insertOne(["burger_name", "devoured"], [req.body.name, req.body.devoured], function() {
-    res.redirect("/");
+  burger.insertOne(["burger_name", "devoured"], [req.body.name, req.body.devoured], 
+    function() {
+      res.redirect("/");
   });
 });
 
