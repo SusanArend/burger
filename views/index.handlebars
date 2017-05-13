@@ -1,7 +1,8 @@
-<div id = container>
-  <div class="jumbotron text-center">
-    <h1>Burgers! Burger! Burgers!</h1>
-  </div>
+<div id = "container">
+  <div class='col-lg-12'>
+    <div class="jumbotron text-center">
+     <h1>Burgers! Burger! Burgers!</h1>
+   </div>
 
   <div class="row">
     <div class="col-sm-5 col-sm-offset-5">
@@ -9,37 +10,56 @@
     </div>
   </div>
 
-  <div class="row" id="rowOne">
 
-      <h2>Here are burgers to devour!!!</h2>
+  <div class='container-fluid full-width' id='main'>
 
-      {{#each burgers}}
-        {{#unless this.devoured}}
+    <div class='row'>
+      <div class='col-sm-2'>
+        <h1>Add a Burger!</h1>
+        <form action='/api/' method='POST'>
+          <input type='text' name='name'>
+          <button type='submit'>Build Yo' Burger!</button>
+        </form>
+      </div>
+    </div>
 
-          {{this.name}}
-            <div class="well">{{this.id}}: {{this.burger_name}}
-              <form class="eat" action="/api/{{this.id}}?_method=PUT" method="POST">
-                <input type="hidden" name="name" value="true">
-                <button type="submit">CHOMP!</button>
-              </form>
-            </div>
-     
-      {{/unless}}
-    {{/each}}
-  </div> <!-- closes rowOne -->
 
-  <div class="row" id="rowTwo">
-    <h2>Here are devoured burgers!!!</h2>
+    <div class="row" id="rowOne">
+      <div class='col-sm-12'>
+        <h2>Here are burgers to devour!!!</h2>
 
-      {{#each burgers}}
-        {{#if this.devoured}}
+        {{#each burgers}}
+          {{#unless this.devoured}}
 
-          {{this.name}}
-            <div class="well">{{this.id}}: {{this.burger_name}}
-            </div>
-     
-        {{/if}}
+            {{this.name}}
+              <div class="well">{{this.id}}: {{this.burger_name}}
+                <form class="eat" action="/api/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="name" value="true">
+                  <button type="submit">CHOMP!</button>
+                </form>
+              </div>
+       
+        {{/unless}}
       {{/each}}
+      </div>
+    </div> <!-- closes rowOne -->
 
-  </div> <!-- closes rowTwo -->
+    <div class="row" id="rowTwo">
+        <div class='col-sm-12'>
+      <h2>Here are devoured burgers!!!</h2>
+
+        {{#each burgers}}
+          {{#if this.devoured}}
+
+            {{this.name}}
+              <div class="well">{{this.id}}: {{this.burger_name}}
+              </div>
+       
+          {{/if}}
+        {{/each}}
+      </div>
+    </div> <!-- closes rowTwo -->
+
+    </div>
+  </div> {{!-- closes container within container --}}
 </div> <!-- closes container -->
