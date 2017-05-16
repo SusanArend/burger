@@ -1,12 +1,12 @@
-#burgers# CREATE DATABASE burgers_db;
-USE avg7tqlsgch4f2qi;
+CREATE DATABASE burgers_db;
+USE burgers_db;
 
 CREATE TABLE burgers
 (
 	id int NOT NULL AUTO_INCREMENT,
 	burger_name VARCHAR (75) NOT NULL,
 	devoured BOOLEAN DEFAULT FALSE,
-    createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id)
 );
 
